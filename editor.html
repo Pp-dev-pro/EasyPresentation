@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SlideForge Editor</title><link rel="stylesheet" href="style.css"></head><body class="ed">
+<div class="bar"><b>🎞️</b>
+<button class="btn ghost" onclick="addText()">T Text</button><button class="btn ghost" onclick="addShape()">▭ Shape</button><button class="btn ghost" onclick="$('#up').click()">🖼 Image</button>
+<input id="up" type="file" accept="image/*" hidden onchange="addImg(this.files[0])"><input id="rp" type="file" accept="image/*" hidden onchange="repImg(this.files[0])">
+<select id="tpl" onchange="useTpl(this.value)"><option value="">Templates…</option></select>
+<button class="btn ghost" onclick="addSlide()">+ Slide</button>
+<span style="flex:1"></span><span id="plan" class="err" style="color:#a5b4fc"></span>
+<button class="btn ghost" onclick="exportJ()">Export</button><button class="btn" onclick="present(0)">▶ Present</button><button class="btn" id="upg" onclick="upgrade()">⭐ Upgrade</button><button class="btn ghost" onclick="logout()">Log out</button></div>
+<div class="bar" id="fmt">
+<select id="font" onchange="st('font',this.value)"><option>Inter</option><option>Georgia</option><option>Impact</option><option>Courier New</option><option>Trebuchet MS</option></select>
+<input id="fs" type="number" value="32" onchange="st('fs',+this.value)"><input id="col" type="color" onchange="st('color',this.value)" title="Color">
+<button class="btn ghost" onclick="st('bold',!sel().bold)"><b>B</b></button>
+<select id="an" onchange="st('anim',this.value)"><option value="">No animation</option><option>fade</option><option>slideup</option><option>slideleft</option><option>zoom</option><option>bounce</option><option>spin</option><option>flip</option><option>pulse</option></select>
+<button class="btn ghost" onclick="prev()">↻ Preview</button><button class="btn ghost" onclick="$('#rp').click()">Change photo</button>
+<button class="btn ghost" onclick="layer(1)">⬆</button><button class="btn ghost" onclick="layer(-1)">⬇</button><button class="btn ghost" onclick="dup()">⧉</button><button class="btn ghost" onclick="del()">🗑</button>
+<span style="flex:1"></span>Background <input id="bg" type="color" onchange="slides[cur].bg=this.value;draw()"><button class="btn ghost" onclick="slides[cur].bg='linear-gradient(135deg,#6366f1,#ec4899)';draw()">Gradient</button><button class="btn ghost" onclick="delSlide()">Delete slide</button></div>
+<div class="main"><div id="thumbs"></div><div id="stage"><div id="wrap"><div class="cv e" id="cv"></div></div></div></div>
+<div id="pres"><div class="cv" id="pcv"></div></div><script src="app.js"></script></body></html>
